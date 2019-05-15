@@ -29,12 +29,13 @@ class UrlQueue extends AsyncQueue {
    * Checks if the supplied URL is a local IP
    */
   static checkIfLocalIP = (url: string) => {
-    const urlIs0_0_0_0 = url !== url.replace(/0\.0\.0\.0/, '');
-    const urlIs10 = url !== url.replace(/10\.\d+\.\d+\.\d+/, '');
-    const urlIs127 = url !== url.replace(/127\.\d+\.\d+\.\d+/, '');
-    const urlIs172 = url !== url.replace(/172\.(1[6-9]|2[0-9]|3[0-6])\.\d+\.\d+/, '');
-    const urlIs192_168 = url !== url.replace(/192\.168\.\d+\.\d+/, '');
-    return urlIs0_0_0_0 || urlIs10 || urlIs127 || urlIs172 || urlIs192_168;
+    const urlIs0_0_0_0 = url !== url.replace(/^https:\/\/0\.0\.0\.0/, '');
+    const urlIs10 = url !== url.replace(/^https:\/\/10\.\d+\.\d+\.\d+/, '');
+    const urlIs127 = url !== url.replace(/^https:\/\/127\.\d+\.\d+\.\d+/, '');
+    const urlIs172 = url !== url.replace(/^https:\/\/172\.(1[6-9]|2[0-9]|3[0-6])\.\d+\.\d+/, '');
+    const urlIs192_168 = url !== url.replace(/^https:\/\/192\.168\.\d+\.\d+/, '');
+    const urlIsLocalhost = url !== url.replace(/^https:\/\/localhost/i, '');
+    return urlIs0_0_0_0 || urlIs10 || urlIs127 || urlIs172 || urlIs192_168 || urlIsLocalhost;
   }
   
   /**
