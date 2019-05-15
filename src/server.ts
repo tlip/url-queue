@@ -22,7 +22,7 @@ server
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: false }))
   .use('/api/v1', routes.api)
-  .all('*', (req, res) => {
+  .all('*', (req: express.Request, res: express.Response) => {
     res
       .status(404)
       .end({ message: `'${req.url}' is 2fake4us.` });
