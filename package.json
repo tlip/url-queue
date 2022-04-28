@@ -24,7 +24,7 @@
     "@types/redis": "^2.8.12",
     "@types/signale": "^1.2.1",
     "@types/webpack-env": "^1.13.7",
-    "async": "^2.6.2",
+    "async": "^2.6.4",
     "axios": "^0.18.0",
     "babel-loader": "7.1.4",
     "bluebird": "^3.5.4",
